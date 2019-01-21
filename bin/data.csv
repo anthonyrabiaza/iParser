@@ -1,0 +1,9 @@
+A:Gender,B:AgeCategory,C:Departement,D:FTETotal,E:TraineeTotal
+MAN,age<30 Yrs,iPaaS,10,15
+MAN,age>30 Yrs,iPaaS,70,2
+WOMAN,age<30 Yrs,iPaaS,15,7
+WOMAN,age>30 Yrs,iPaaS,70,0
+MAN,age<30 Yrs,ETL,5,1
+MAN,age>30 Yrs,ETL,35,0
+WOMAN,age<30 Yrs,ETL,7,0
+WOMAN,age>30 Yrs,ETL,25,0

@@ -173,6 +173,10 @@ public class IParser {
 		return output.toString();
 	}
 
+	public InputStream processFileGroupBy(String fileConfiguration, InputStream is, String dataStartAt, String dataEndAt, String groupByColumn) throws Exception {
+		return stringToInputStream(processFileGroupBy(fileConfiguration, inputStreamToString(is), dataStartAt, dataEndAt, groupByColumn));
+	}
+	
 	public String processFileGroupBy(String fileConfiguration, String data, String dataStartAt, String dataEndAt, String groupByColumn) throws Exception {
 		StringBuffer output 	= new StringBuffer();
 		Set<String> valuesSet 	= getPossiblesValues(data, groupByColumn);

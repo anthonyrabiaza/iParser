@@ -14,7 +14,7 @@ I wanted to share a solution I recently developed to have allow parsing of Flat 
 
 ## Getting Started
 
-Please download the [latest library](iparser-1.0.jar?raw=true), create a custom library (Scripting):
+Please download the [latest library](iparser-1.1.jar?raw=true), create a custom library (Scripting):
 
 ![Alt text](resources/Custom_Library.png?raw=true "iParser")
 

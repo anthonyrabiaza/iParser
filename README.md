@@ -26,7 +26,7 @@ All the scenario take the assumptions that the current Document contains Data in
 
 ### Reading or skipping some lines
 
-You can use iparse.readFixedLines(<inputStream>,<first line index>,<last line index>)
+You can use iparse.readFixedLines([inputStream],[first line index],[last line index])
 
 For instance:
 
@@ -122,7 +122,7 @@ Indicator	ID4		Total number of trainees						sum(D)
 - OperationDetails: only for Virtual indicator, when an calculation on severals Indicator (or Virtual Indicator) need to be applied
 
 ```
-is = iparser.processFile(<configurationFile location>, inputstream, <dataColumnStart>, <dataColumnEnd>);
+is = iparser.processFile([configurationFile location], inputstream, [dataColumnStart], [dataColumnEnd]);
 ```
 
 ```

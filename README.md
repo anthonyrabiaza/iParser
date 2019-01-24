@@ -8,9 +8,7 @@ I wanted to share a solution I recently developed to have allow parsing of Flat 
 
 ![Alt text](resources/iParser.png?raw=true "iParser")
 
-<aside class="warning">
-!!! All the CSV file are comma separated, to ease reading the example here are not comman separated. !!!
-</aside>
+!!! All the CSV files need to be comma separated. !!!
 
 ## Getting Started
 
@@ -83,9 +81,8 @@ Set<String> listOfPossibleValues = iparser.getPossiblesValues(is, "A");
 
 #### Processing of the Document using a Configuration File
 
-<aside class="warning">
-!!! All the CSV file are comma separated, to ease reading the example here are not comman separated. !!!
-</aside>
+
+!!! All the CSV files need to be comma separated. !!!
 
 
 Sample of Data to processed
@@ -152,7 +149,9 @@ Output:
 "Indicator","ID1",31.0
 "Indicator","ID2",29.0
 "Virtual","ID3",60.0
-"Indicator","ID4",237.0
+"Indicator","ID4",26.0
+"Indicator","ID5",24.0
+"Indicator","ID6",2.0
 ```
 
 
@@ -170,14 +169,24 @@ You can processFileGroupBy and provide an additional parameter with is the Group
 Output:
 
 ```
+"Indicator","ID1","C=Data Science",0.0
+"Indicator","ID2","C=Data Science",0.0
+"Virtual","ID3","C=Data Science",0.0
+"Indicator","ID4","C=Data Science",1.0
+"Indicator","ID5","C=Data Science",1.0
+"Indicator","ID6","C=Data Science",1.0
 "Indicator","ID1","C=iPaaS",25.0
 "Indicator","ID2","C=iPaaS",22.0
 "Virtual","ID3","C=iPaaS",47.0
-"Indicator","ID4","C=iPaaS",165.0
+"Indicator","ID4","C=iPaaS",24.0
+"Indicator","ID5","C=iPaaS",24.0
+"Indicator","ID6","C=iPaaS",24.0
 "Indicator","ID1","C=ETL",6.0
 "Indicator","ID2","C=ETL",7.0
 "Virtual","ID3","C=ETL",13.0
-"Indicator","ID4","C=ETL",72.0
+"Indicator","ID4","C=ETL",1.0
+"Indicator","ID5","C=ETL",1.0
+"Indicator","ID6","C=ETL",1.0
 ```
 
 #### Advanced Regular Expression

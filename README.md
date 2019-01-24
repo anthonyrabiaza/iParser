@@ -91,6 +91,7 @@ Set<String> listOfPossibleValues = iparser.getPossiblesValues(is, "A");
 Sample of Data to processed
 
 | A:Gender | B:AgeCategory | C:Departement | D:FTETotal | E:TraineeTotal |
+| -------- | ------------- | ------------- | ---------- | -------------- |
 | MAN | age<30 Yrs | iPaaS | 10 | 15 |
 | MAN | age>30 Yrs | iPaaS | 70 | 2 |
 | WOMAN | age<30 Yrs | iPaaS | 15 | 7 |

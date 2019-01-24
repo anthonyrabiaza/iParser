@@ -326,6 +326,13 @@ public class IParser {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(args.length==5) {
+			try {
+				result = parser.processFileGroupBy(args[0], readFile(args[1], Charset.defaultCharset()), args[2], args[3], args[4]);
+				System.out.println(result);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else {
 			System.err.println("Command:       	java -jar iparser-runnable<version>.jar configuration_file.csv data.csv datacolumnStart datacolumnEnd");
 			System.err.println(" for instance: 	java -jar iparser-runnable-0.1.jar \"Boomi SAP iParser Configuration HR Headcount Indicators.csv\" \"Enablon Report.csv\" I W");

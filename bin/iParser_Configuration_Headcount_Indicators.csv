@@ -3,3 +3,4 @@ Indicator,ID1,Number of men with age below 30 years old,"A=MAN,B=.*<30 Yrs",sum,
 Indicator,ID2,Number of women with age below 30 years old,"A=WOMAN,B=.*<30 Yrs",sum,
 Virtual,ID3,Total number with age below 30 years old,,compute,ID1+ID2
 Indicator,ID4,Total number of trainees,,sum(D),
+Indicator,ID5,Total number of trainees not in iPaaS,C=iPaaS,sum(D),

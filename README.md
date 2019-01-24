@@ -9,7 +9,7 @@ I wanted to share a solution I recently developed to have allow parsing of Flat 
 ![Alt text](resources/iParser.png?raw=true "iParser")
 
 <aside class="warning">
-!!! All the CSV file are comma separated, to ease reading the example here are using tab separated. !!!
+!!! All the CSV file are comma separated, to ease reading the example here are not comman separated. !!!
 </aside>
 
 ## Getting Started
@@ -84,34 +84,34 @@ Set<String> listOfPossibleValues = iparser.getPossiblesValues(is, "A");
 #### Processing of the Document using a Configuration File
 
 <aside class="warning">
-!!! All the CSV file are comma separated, to ease reading the example here are using tab separated. !!!
+!!! All the CSV file are comma separated, to ease reading the example here are not comman separated. !!!
 </aside>
 
 
 Sample of Data to processed
 
-```
-A:Gender	B:AgeCategory		C:Departement	D:FTETotal	E:TraineeTotal
-MAN		age<30 Yrs		iPaaS		10			15
-MAN		age>30 Yrs		iPaaS		70			2
-WOMAN		age<30 Yrs		iPaaS		15			7
-WOMAN		age>30 Yrs		iPaaS		70			0
-MAN		age<30 Yrs		ETL		5			1
-MAN		age>30 Yrs		ETL		35			0
-WOMAN		age<30 Yrs		ETL		7			0
-WOMAN		age>30 Yrs		ETL		25			0
-```
+| A:Gender | B:AgeCategory | C:Departement | D:FTETotal | E:TraineeTotal |
+| MAN | age<30 Yrs | iPaaS | 10 | 15 |
+| MAN | age>30 Yrs | iPaaS | 70 | 2 |
+| WOMAN | age<30 Yrs | iPaaS | 15 | 7 |
+| WOMAN | age>30 Yrs | iPaaS | 70 | 0 |
+| WOMAN | age>30 Yrs | Data Science | 1 | 1 |
+| MAN | age<30 Yrs | ETL | 5 | 1 |
+| MAN | age>30 Yrs | ETL | 35 | 0 |
+| WOMAN | age<30 Yrs | ETL | 7 | 0 |
+| WOMAN | age>30 Yrs | ETL | 25 | 0 |
 
 Configuration file
 
-```
-Type		Name		Label						Filter			Operation	OperationDetails
-Indicator	ID1		Number of men with age below 30 years old	A=MAN,B=.*<30 Yrs	sum
-Indicator	ID2		Number of women with age below 30 years old	A=WOMAN,B=.*<30 Yrs	sum
-Indicator	ID3		Total number with age below 30 years old				compute		ID1+ID2
-Indicator	ID4		Total number of trainees						sum(D)		
+| Type | Name | Label | Filter | Operation | OperationDetails |
+| ---- | ---- | ----- | ------ | --------- | ---------------- |
+| Indicator | ID1 | Number of men with age below 30 years old | A=MAN,B=.*<30 Yrs | sum |  |
+| Indicator | ID2 | Number of women with age below 30 years old | A=WOMAN,B=.*<30 Yrs | sum |  |
+| Virtual | ID3 | Total number with age below 30 years old |  | compute | ID1+ID2 |
+| Indicator | ID4 | Total number of trainees |  | sum(E) |  |
+| Indicator | ID5 | Total number of trainees in iPaaS | C=iPaaS.* | sum(E) |  |
+| Indicator | ID6 | Total number of trainees not in iPaaS | C=(?!.*iPaaS.*).* | sum(E) |  |
 
-```
 - Type: Indicator or Virtual (value is used for display only - not used for processing)
 - Name: Name of the indicator
 - Label: Description of the descriptor 
@@ -177,4 +177,24 @@ Output:
 "Indicator","ID2","C=ETL",7.0
 "Virtual","ID3","C=ETL",13.0
 "Indicator","ID4","C=ETL",72.0
+```
+
+#### Advanced Regular Expression
+
+You can use a filter with standard equals:
+
+```
+A=MAN
+```
+
+You can have a filter with different conditions (all need to be satisfied)
+
+```
+A=MAN,B=.*<30 Yrs
+```
+
+You can have a filter with a negation using negative lookahead **?!** using the following syntax: **(?!.*expressionNotEqualTo.*).***
+
+```
+C=(?!.*iPaaS.*).*
 ```
